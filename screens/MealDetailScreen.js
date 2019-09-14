@@ -32,10 +32,14 @@ MealDetailScreen.navigationOptions = navigationData => {
     headerTitle: selectedMeal.title,
     headerRight: (
       <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
-      <Item title="search" iconName="ios-star" onPress={() => {
-        console.log('starred')
-      }} />
-    </HeaderButtons>
+        <Item
+          title="star"
+          iconName="ios-star"
+          onPress={() => {
+            console.log("starred");
+          }}
+        />
+      </HeaderButtons>
     )
   };
 };
