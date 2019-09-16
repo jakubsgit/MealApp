@@ -19,6 +19,7 @@ const MealDetailScreen = props => {
   const mealId = props.navigation.getParam("mealId");
 
   const selectedMeal = MEALS.find(meal => meal.id === mealId);
+
   return (
     <ScrollView>
       <Image style={styles.image} source={{ uri: selectedMeal.imageUrl }} />
@@ -29,8 +30,17 @@ const MealDetailScreen = props => {
         </Text>
         <Text>{selectedMeal.affordability}</Text>
       </View>
-      <View style={styles.screen}>
-        <Text style={styles.steps}>{selectedMeal.steps}</Text>
+      <View style={styles.mealScreen}>
+        <Text style={{ fontSize: 15, fontWeight: "bold" }}>Ingredients:</Text>
+        {selectedMeal.ingredients.map(ingredient => (
+          <Text key={ingredient}>{ingredient}</Text>
+        ))}
+      </View>
+      <View style={styles.mealScreen}>
+        <Text style={{ fontSize: 15, fontWeight: "bold" }}>Steps:</Text>
+        {selectedMeal.steps.map(step => (
+          <Text key={step}>{step}</Text>
+        ))}
         <Button
           title="Go back to categories"
           onPress={() => {
@@ -62,12 +72,10 @@ MealDetailScreen.navigationOptions = navigationData => {
 };
 
 const styles = StyleSheet.create({
-  screen: {
+  mealScreen: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     padding: 20,
-    backgroundColor: '#EAE8E1'
+    backgroundColor: "#EAE8E1"
   },
   image: {
     height: 290,
@@ -77,7 +85,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     justifyContent: "space-between",
     alignItems: "center",
-    height: "10%"
+    height: "5%"
   },
   mealRow: {
     flexDirection: "row"
