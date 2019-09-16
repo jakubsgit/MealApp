@@ -13,7 +13,7 @@ import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import CustomHeaderButton from "../components/HeaderButton";
 
 import { MEALS } from "../data/dummy-data";
-import { FlatList } from "react-native-gesture-handler";
+import { Colors } from "react-native-paper";
 
 const MealDetailScreen = props => {
   const mealId = props.navigation.getParam("mealId");
@@ -30,7 +30,7 @@ const MealDetailScreen = props => {
         <Text>{selectedMeal.affordability}</Text>
       </View>
       <View style={styles.screen}>
-        <Text>{selectedMeal.steps}</Text>
+        <Text style={styles.steps}>{selectedMeal.steps}</Text>
         <Button
           title="Go back to categories"
           onPress={() => {
@@ -66,7 +66,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    padding: 20
+    padding: 20,
+    backgroundColor: '#EAE8E1'
   },
   image: {
     height: 290,
@@ -80,6 +81,9 @@ const styles = StyleSheet.create({
   },
   mealRow: {
     flexDirection: "row"
+  },
+  steps: {
+    fontSize: 15
   }
 });
 
