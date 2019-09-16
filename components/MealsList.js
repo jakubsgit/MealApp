@@ -31,12 +31,6 @@ const MealList = props => {
         renderItem={renderMealItem}
         style={{ width: "90%" }}
       />
-      <Button
-        title="Detail"
-        onPress={() => {
-          props.navigation.navigate("MealDetail");
-        }}
-      />
     </View>
   );
 };
